@@ -4,107 +4,59 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo">{{ titulo | uppercase }}</span>
-          <form
-            class="mt-3"
-            [formGroup]="alumnoForm"
-            (ngSubmit)="agregarAlumno()"
-          >
+          <form class="mt-3" [formGroup]="alumnoForm" (ngSubmit)="agregarAlumno()">
             <div class="mb-3">
-              <input
-                type="text"
-                formControlName="nombres"
-                class="form-control form-control-lg"
-                placeholder="Nombres"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  alumnoForm.get('nombres')?.hasError('required') &&
-                  alumnoForm.get('nombres')?.touched
-                "
-              >
+              <input type="text" formControlName="nombre" class="form-control form-control-lg" placeholder="Nombres" />
+              <div class="text-danger" *ngIf="
+                  alumnoForm.get('nombre')?.hasError('required') &&
+                  alumnoForm.get('nombre')?.touched
+                ">
                 <span>El nombre del alumno es obligatorio</span>
               </div>
             </div>
             <div class="mb-3">
-              <input
-                type="text"
-                formControlName="apellidos"
-                class="form-control form-control-lg"
-                placeholder="Apellidos"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
-                  alumnoForm.get('apellidos')?.hasError('required') &&
-                  alumnoForm.get('apellidos')?.touched
-                "
-              >
+              <input type="text" formControlName="apellido" class="form-control form-control-lg"
+                placeholder="Apellidos" />
+              <div class="text-danger" *ngIf="
+                  alumnoForm.get('apellido')?.hasError('required') &&
+                  alumnoForm.get('apellido')?.touched
+                ">
                 <span>El apellido del alumno es obligatorio</span>
               </div>
             </div>
             <div class="mb-3">
-              <input
-                type="number"
-                formControlName="edad"
-                class="form-control form-control-lg"
-                placeholder="Edad"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="number" formControlName="edad" class="form-control form-control-lg" placeholder="Edad" />
+              <div class="text-danger" *ngIf="
                   alumnoForm.get('edad')?.hasError('required') &&
                   alumnoForm.get('edad')?.touched
-                "
-              >
+                ">
                 <span>La edad del alumno es obligatorio</span>
               </div>
             </div>
             <div class="mb-3">
-              <input
-                type="text"
-                formControlName="genero"
-                class="form-control form-control-lg"
-                placeholder="Genero"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="text" formControlName="genero" class="form-control form-control-lg" placeholder="Genero" />
+              <div class="text-danger" *ngIf="
                   alumnoForm.get('genero')?.hasError('required') &&
                   alumnoForm.get('genero')?.touched
-                "
-              >
+                ">
                 <span>El genero del alumno es obligatorio</span>
               </div>
             </div>
             <div class="mb-3">
-              <input
-                type="number"
-                formControlName="promedio_pond"
-                class="form-control form-control-lg"
-                placeholder="Promedio"
-              />
-              <div
-                class="text-danger"
-                *ngIf="
+              <input type="number" formControlName="promedio_pond" class="form-control form-control-lg"
+                placeholder="Promedio" />
+              <div class="text-danger" *ngIf="
                   alumnoForm.get('promedio')?.hasError('required') &&
                   alumnoForm.get('promedio')?.touched
-                "
-              >
+                ">
                 <span>El promedio del alumno es obligatorio</span>
               </div>
             </div>
             <div class="mb-3">
-              <button
-                class="btn btn-secondary btn-lg float-start"
-                routerLink="/"
-              >
+              <button class="btn btn-secondary btn-lg float-start" routerLink="/">
                 Volver
               </button>
-              <button
-                class="btn btn-success btn-lg float-end"
-                [disabled]="alumnoForm.invalid"
-              >
+              <button class="btn btn-success btn-lg float-end" [disabled]="alumnoForm.invalid">
                 Aceptar
               </button>
             </div>

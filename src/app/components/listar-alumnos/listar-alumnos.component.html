@@ -4,16 +4,10 @@
       <div class="card">
         <div class="card-body text-center">
           <span class="titulo">Listado de Alumnos</span>
-          <button
-            class="btn btn-success float-end"
-            routerLink="/agregar-alumno"
-          >
+          <button class="btn btn-success float-end" routerLink="/agregar-alumno">
             Nuevo
           </button>
-          <table
-            *ngIf="listAlumnos.length > 0"
-            class="table table-striped mt-3"
-          >
+          <table *ngIf="listAlumnos.length > 0" class="table table-striped mt-3">
             <thead>
               <tr>
                 <th scope="col">Nombres</th>
@@ -26,28 +20,19 @@
             </thead>
             <tbody>
               <tr *ngFor="let alumno of listAlumnos">
-                <td>{{ alumno.nombres }}</td>
-                <td>{{ alumno.apellidos }}</td>
+                <td>{{ alumno.nombre }}</td>
+                <td>{{ alumno.apellido }}</td>
                 <td>{{ alumno.edad }}</td>
                 <td>{{ alumno.genero }}</td>
                 <td>{{ alumno.promedio_pond }}</td>
                 <td>
-                  <i
-                    (click)="eliminarAlumno(alumno._id)"
-                    class="fa-solid fa-trash text-danger"
-                  ></i
-                  ><i
-                    [routerLink]="['/editar-alumno', alumno._id]"
-                    class="fa-solid fa-pen-to-square text-primary"
-                  ></i>
+                  <i (click)="eliminarAlumno(alumno.id)" class="fa-solid fa-trash text-danger"></i><i
+                    [routerLink]="['/editar-alumno', alumno.id]" class="fa-solid fa-pen-to-square text-primary"></i>
                 </td>
               </tr>
             </tbody>
           </table>
-          <h5
-            style="text-align: start; margin-top: 10px"
-            *ngIf="listAlumnos.length == 0"
-          >
+          <h5 style="text-align: start; margin-top: 10px" *ngIf="listAlumnos.length == 0">
             No hay Productos para mostrar
           </h5>
         </div>
