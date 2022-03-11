@@ -7,23 +7,23 @@ import { Alumno } from '../models/alumno';
   providedIn: 'root'
 })
 export class AlumnoService {
-  url='http://localhost:4000/api/alumnos/';
+  url = 'https://us-central1-crud-53510.cloudfunctions.net/app/api/alumnos/';
 
-  constructor( private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAlumnos():Observable<any>{
+  getAlumnos(): Observable<any> {
     return this.http.get(this.url);
   }
-  eliminarAlumno(id:string):Observable<any>{
+  eliminarAlumno(id: string): Observable<any> {
     return this.http.delete(this.url + id);
   }
-  guardarAlumno(alumno: Alumno):Observable<any>{
-    return this.http.post(this.url,alumno);
+  guardarAlumno(alumno: Alumno): Observable<any> {
+    return this.http.post(this.url, alumno);
   }
-  obtenerAlumno(id:string):Observable<any>{
+  obtenerAlumno(id: string): Observable<any> {
     return this.http.get(this.url + id);
   }
-  editarAlumno(id:string,alumno:Alumno):Observable<any>{
+  editarAlumno(id: string, alumno: Alumno): Observable<any> {
     return this.http.put(this.url + id, alumno);
   }
 }
