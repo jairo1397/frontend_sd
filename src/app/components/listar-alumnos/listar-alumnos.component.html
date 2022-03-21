@@ -26,8 +26,8 @@
                 <td>{{ alumno.genero }}</td>
                 <td>{{ alumno.promedio_pond }}</td>
                 <td>
-                  <i (click)="eliminarAlumno(alumno.id)" class="fa-solid fa-trash text-danger"></i><i
-                    [routerLink]="['/editar-alumno', alumno.id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                  <i (click)="eliminarAlumno(alumno.id)" class="fa-solid fa-trash text-danger"></i>
+                  <i [routerLink]="['/editar-alumno', alumno.id]" class="fa-solid fa-pen-to-square text-primary"></i>
                 </td>
               </tr>
             </tbody>

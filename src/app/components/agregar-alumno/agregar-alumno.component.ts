@@ -16,8 +16,8 @@ export class AgregarAlumnoComponent implements OnInit {
   id: string | null;
   constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, private _alumnoService: AlumnoService, private aRouter: ActivatedRoute) {
     this.alumnoForm = this.fb.group({
-      nombres: ['', Validators.required],
-      apellidos: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
       edad: ['', Validators.required],
       genero: ['', Validators.required],
       promedio_pond: ['', Validators.required],
@@ -40,6 +40,7 @@ export class AgregarAlumnoComponent implements OnInit {
     }
     if (this.id !== null) {
       this._alumnoService.editarAlumno(this.id, ALUMNO).subscribe(data => {
+        
         this.toastr.info('Alumno editado correctamente', 'Alumno editado');
         this.router.navigate(['/']);
       }, error => {
@@ -62,15 +63,20 @@ export class AgregarAlumnoComponent implements OnInit {
   esEditar() {
     if (this.id !== null) {
       this.titulo = "Editar Alumno";
+      console.log(this.id);
       this._alumnoService.obtenerAlumno(this.id).subscribe(data => {
+        console.log("hola2")
+        console.log(data);
+        console.log("hola2")
         this.alumnoForm.setValue({
-          nombres: data.nombres,
-          apellidos: data.apellidos,
-          edad: data.edad,
-          genero: data.genero,
-          promedio_pond: data.promedio_pond,
+          nombre: data.alumno.nombre,
+          apellido: data.alumno.apellido,          
+          edad: data.alumno.edad,
+          genero: data.alumno.genero,
+          promedio_pond: data.alumno.promedio_pond,          
         });
       });
+      
     }
   }
 
