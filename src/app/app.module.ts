@@ -9,12 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgregarAlumnoComponent } from './components/agregar-alumno/agregar-alumno.component';
 import { ListarAlumnosComponent } from './components/listar-alumnos/listar-alumnos.component';
+import { LoginComponent } from './components/login/login.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AgregarAlumnoComponent,
-    ListarAlumnosComponent
+    ListarAlumnosComponent,
+    LoginComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
