@@ -29,7 +29,7 @@ export class AgregarAlumnoComponent implements OnInit {
     this.esEditar();
   }
   agregarAlumno() {
-    console.log(this.alumnoForm);
+    // console.log(this.alumnoForm);
 
     const ALUMNO: Alumno = {
       nombre: this.alumnoForm.get('nombre')?.value,
@@ -40,7 +40,7 @@ export class AgregarAlumnoComponent implements OnInit {
     }
     if (this.id !== null) {
       this._alumnoService.editarAlumno(this.id, ALUMNO).subscribe(data => {
-        
+
         this.toastr.info('Alumno editado correctamente', 'Alumno editado');
         this.router.navigate(['/']);
       }, error => {
@@ -63,20 +63,20 @@ export class AgregarAlumnoComponent implements OnInit {
   esEditar() {
     if (this.id !== null) {
       this.titulo = "Editar Alumno";
-      console.log(this.id);
+      // console.log(this.id);
       this._alumnoService.obtenerAlumno(this.id).subscribe(data => {
-        console.log("hola2")
-        console.log(data);
-        console.log("hola2")
+        // console.log("hola2")
+        // console.log(data);
+        // console.log("hola2")
         this.alumnoForm.setValue({
           nombre: data.alumno.nombre,
-          apellido: data.alumno.apellido,          
+          apellido: data.alumno.apellido,
           edad: data.alumno.edad,
           genero: data.alumno.genero,
-          promedio_pond: data.alumno.promedio_pond,          
+          promedio_pond: data.alumno.promedio_pond,
         });
       });
-      
+
     }
   }
 

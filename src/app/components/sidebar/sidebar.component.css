@@ -1,54 +1,56 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-.perfil{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
+
+.perfil {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
 }
 
-.imagen-perfil{
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
+.imagen-perfil {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
 }
 
-.container{
+.container {
   height: 100%;
   position: fixed;
+
 }
 
-.card{
+.card {
   width: 300px;
   height: 100vh;
   background-color: #1E2B32;
-  border-radius: 10px 10px;
+  border-radius: 0px 10px 10px 0px;
 }
 
-.header{
+.header {
   border-radius: 10px 10px 0px 0px;
   padding: 5px;
   background-color: #2A3942;
 }
 
-h3{
+h3 {
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   margin-left: 1rem;
 }
 
-.iconM{
+.iconM {
   font-size: 18px;
   margin-left: 170px;
   color: #2f89fc;
 }
 
-.icon{
+.icon {
   margin-right: 8px;
 }
 
-.body li{
+.body li {
   transition: 1s all;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
@@ -62,20 +64,20 @@ h3{
   border-bottom-right-radius: 10px 10px;
 }
 
-li:hover{
+li:hover {
   transition: 1s all;
   color: #2f89fc;
-  background-color: rgba(42, 56, 65, 0.82);
+  background-color: rgba(95, 157, 195, 0.82);
   border-top-right-radius: 10px 10px;
   border-bottom-right-radius: 10px 10px;
   cursor: pointer;
 }
 
-.body > li{
+.body>li {
   float: left;
 }
 
-.body li ul{
+.body li ul {
   background: #1E2B32;
   margin-left: 280px;
   margin-top: -38px;
@@ -85,14 +87,15 @@ li:hover{
   border-bottom-right-radius: 15px 15px;
 }
 
-.body li:hover > ul{
+.body li:hover>ul {
   display: block;
   cursor: pointer;
 }
-button{
-    color: white;
-    background-color: #1E2B32;
-    border: none;
-    width: 100%;
-    text-align: start;
+
+button {
+  color: white;
+  background-color: #1E2B32;
+  border: none;
+  width: 100%;
+  text-align: start;
 }

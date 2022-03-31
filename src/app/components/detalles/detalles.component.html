@@ -1,0 +1,36 @@
+<app-sidebar></app-sidebar>
+
+<div class="contenido">
+    <div class="datos">
+        <div class="card">
+            <h3>Id del alumno:</h3>
+            <p>{{alumnoId}}}</p>
+            <h3>Nombre del alumno</h3>
+            <p>{{alumnoNombre}}</p>
+            <h3>Apellido del alumno</h3>
+            <p>{{alumnoApellido}}</p>
+            <h3>Edad del alumno</h3>
+            <p>{{alumnoEdad}}</p>
+            <h3>Genero del alumno</h3>
+            <p>{{alumnoGenero}}</p>
+            <h3>Cursos</h3>
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Curso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let curso of alumnoCursos,index as id">
+                        <td>{{id}}</td>
+                        <td>{{ alumnoCursos[id] }}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>

@@ -9,27 +9,28 @@ import { AlumnoService } from 'src/app/services/alumno.service';
   styleUrls: ['./listar-alumnos.component.css']
 })
 export class ListarAlumnosComponent implements OnInit {
-  listAlumnos: Alumno[]=[];
+  listAlumnos: Alumno[] = [];
 
-  constructor(private _alumnoService:AlumnoService, private toastr: ToastrService) { }
+  constructor(private _alumnoService: AlumnoService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.obtenerAlumnos();
   }
 
-  obtenerAlumnos(){
+  obtenerAlumnos() {
     this._alumnoService.getAlumnos().subscribe(data => {
       console.log(data);
       this.listAlumnos = data;
-    },error => console.log(error));
+      // console.log(JSON.stringify(data));
+    }, error => console.log(error));
   }
-  eliminarAlumno(id:any){
+  eliminarAlumno(id: any) {
     this._alumnoService.eliminarAlumno(id).subscribe(data => {
-      this.toastr.error('Alumno eliminado correctamente','Alumno eliminado');
+      this.toastr.error('Alumno eliminado correctamente', 'Alumno eliminado');
       this.obtenerAlumnos();
-    },error =>{
+    }, error => {
       console.log(error);
-    } );
+    });
   }
 
 }

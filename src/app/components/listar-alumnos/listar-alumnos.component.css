@@ -2,3 +2,16 @@
   cursor: pointer;
   margin-left: 7px;
 }
+
+.alumno-nombre {
+  cursor: pointer;
+
+}
+
+.alumno-nombre:hover {
+  color: #2f89fc;
+}
+
+.card {
+  margin-top: 20px;
+}

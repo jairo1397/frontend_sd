@@ -11,6 +11,9 @@ import { AgregarAlumnoComponent } from './components/agregar-alumno/agregar-alum
 import { ListarAlumnosComponent } from './components/listar-alumnos/listar-alumnos.component';
 import { LoginComponent } from './components/login/login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { Error404Component } from './components/error404/error404.component';
+import { DetallesComponent } from './components/detalles/detalles.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     AgregarAlumnoComponent,
     ListarAlumnosComponent,
     LoginComponent,
-    SidebarComponent
+    SidebarComponent,
+    InicioComponent,
+    Error404Component,
+    DetallesComponent
   ],
   imports: [
     BrowserModule,
