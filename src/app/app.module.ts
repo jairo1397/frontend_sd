@@ -14,6 +14,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { Error404Component } from './components/error404/error404.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
+import { TutoriaComponent } from './components/tutoria/tutoria.component';
+import { ReunionComponent } from './components/reunion/reunion.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DetallesComponent } from './components/detalles/detalles.component';
     SidebarComponent,
     InicioComponent,
     Error404Component,
-    DetallesComponent
+    DetallesComponent,
+    TutoriaComponent,
+    ReunionComponent
   ],
   imports: [
     BrowserModule,

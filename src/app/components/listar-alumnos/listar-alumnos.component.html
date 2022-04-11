@@ -37,9 +37,13 @@
                 </tr>
               </tbody>
             </table>
-            <h5 style="text-align: start; margin-top: 10px" *ngIf="listAlumnos.length == 0">
-              No hay Alumnos para mostrar
+            <h5 style="text-align: start; margin-top: 10px" *ngIf="cargando">
+              Cargando....
             </h5>
+            <h5 style="text-align: start; margin-top: 10px" *ngIf="cargando==false && listAlumnos.length == 0">
+              No hay alumnos registrados
+            </h5>
+
           </div>
         </div>
       </div>

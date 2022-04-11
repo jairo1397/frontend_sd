@@ -10,7 +10,7 @@ import { AlumnoService } from 'src/app/services/alumno.service';
 })
 export class ListarAlumnosComponent implements OnInit {
   listAlumnos: Alumno[] = [];
-
+  cargando: boolean = true;
   constructor(private _alumnoService: AlumnoService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -19,9 +19,10 @@ export class ListarAlumnosComponent implements OnInit {
 
   obtenerAlumnos() {
     this._alumnoService.getAlumnos().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.listAlumnos = data;
-      // console.log(JSON.stringify(data));
+      this.cargando = false;
+
     }, error => console.log(error));
   }
   eliminarAlumno(id: any) {
