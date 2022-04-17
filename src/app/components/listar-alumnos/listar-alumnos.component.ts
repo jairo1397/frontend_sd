@@ -27,7 +27,6 @@ export class ListarAlumnosComponent implements OnInit {
   }
   eliminarAlumno(id: any) {
     this._alumnoService.eliminarAlumno(id).subscribe(data => {
-      this.toastr.error('Alumno eliminado correctamente', 'Alumno eliminado');
       this.obtenerAlumnos();
     }, error => {
       console.log(error);

@@ -18,12 +18,15 @@ export class AlumnoService {
     return this.http.delete(this.url + id);
   }
   guardarAlumno(alumno: Alumno): Observable<any> {
+    console.log(alumno);
     return this.http.post(this.url, alumno);
   }
   obtenerAlumno(id: string): Observable<any> {
+    console.log("sssssssssssssss");
     return this.http.get(this.url + id);
   }
   editarAlumno(id: string, alumno: Alumno): Observable<any> {
     return this.http.put(this.url + id, alumno);
   }
+
 }

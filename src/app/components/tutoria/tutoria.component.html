@@ -1,34 +1,141 @@
 <div class="menu">
     <app-sidebar></app-sidebar>
 </div>
-<div class="contenido">
+
+
+<div class="contenido">    
     <div class="tutoria">
-        <h1>Seccion de Tutoria</h1>
-        <h3>Generar Enlace de reunion</h3>
-        <button>Generar</button>
-        <h3>Seleccionar Alumno</h3>
-        <select name="deporte">
+        <div class="container">
+        <div class="row">
+        <div class="col-lg-6 offset-lg-3">   
+        <div class="card-body text-center">
 
-            <option>Jairo</option>
+        <form [formGroup]="tutoriaForm"(submit)="agregarTutoria(tutoriaForm.value)">            
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" formControlName="enlace" id="enlace" placeholder="Enter enlace" aria-describedby="enlace">
+                <label for="email">Enlace de la reunion</label>
+            </div>
+              
+            <div class="form-floating mt-3 mb-3">
+                <input
+                id="typeahead-focus"
+                type="text"
+                class="form-control"
+                formControlName="id_alumno"
+                placeholder="Enter anlumno" 
+                aria-describedby="Alumno"
+                [(ngModel)]="modelfocus"
+                [ngbTypeahead]="search"
+                (focus)="focus$.next($any($event).target.value)"
+                (click)="click$.next($any($event).target.value)"
+                #instance="ngbTypeahead"
+                />
+                <label for="id_alumno">Alumno</label>
+            </div>
 
-            <option>Críquet</option>
+            <div class="form-floating">
+                    
+                    <div class="input-group">
+                        
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Fecha</label>
+                        <input class="form-control" formControlName="fecha" placeholder="yyyy-mm-dd"
+                                name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">                                
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                                <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                                <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+            </div>
+            <br>
+            
+            <div class="input-group">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Hora</label>
+                <div class="col-sm-10">
+                    <ngb-timepicker [(ngModel)]="time" [spinners]="false" formControlName="hora" id="enlace" placeholder="Enter enlace" aria-describedby="enlace"></ngb-timepicker>
+                </div>
+            </div>            
+            <br>
 
-            <option>Básquetbol</option>
+            <div class="form-floating">
+                <button type="submit" class="btn btn-primary mb-2">Enviar invitacion</button>
+            </div>
+            
+        </form>
 
-            <option>Hockey</option>
+        <table *ngIf="listAlumnos.length > 0" class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Alumno</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Reunion</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tutoria of listTutorias">
+                
+                <td class="alumno-nombre" [routerLink]="['/reunion',tutoria.id]">{{ this.nombreAlumno(tutoria.alumno)}}</td>
 
-            <option>Tenis</option>
+                <td>{{ tutoria.fecha}}</td>   
+                <td>{{ tutoria.hora }}</td>             
+                <td>{{ tutoria.reunion}}</td>                
+                <td>
+                  <i [routerLink]="['/reunion', tutoria.id]" class="fa-solid fa-pen-to-square text-primary">acuerdos</i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-        </select>
-        <h3>Establecer Dia</h3>
-        <input type="date">
-        <h3>Establecer Hora</h3>
-        <input type="time">
-        <br>
-        <br>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>    
+</div>
 
-        <button>Enviar invitacion</button>
-        <br>
+<!-- 
+
+<div class="contenido">
+    
+    <div class="tutoria">
+        <form [formGroup]="tutoriaForm"(submit)="onSubmit(tutoriaForm.value)">
+            <h1>Seccion de Tutoria</h1>
+            <br>
+            <br>
+
+            <h4>Ingresa el enlace de la reunion</h4>         
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="enlace_reunion">Ejemplo: "https://meet.google.com/"</label>
+            </div>
+            <hr>
+            
+            
+            <h4>Seleccionar Alumno</h4>         
+            <div class="form-floating">            
+                <app-typeahead-focus></app-typeahead-focus>
+            </div>
+            <hr>
+            
+            <h4>Establecer el día</h4>         
+            <div class="form-floating">            
+                <app-datepicker-popup></app-datepicker-popup>
+            </div>        
+            <hr>
+
+            <h4>Establecer la hora</h4>         
+            <div class="form-floating">            
+                <app-timepicker-basic></app-timepicker-basic>
+            </div>        
+            <hr>
+            
+
+            <button type="submit" class="btn btn-primary">Enviar invitacion</button>
+            <br>
+        </form>
         <div class="table-wrapper">
             <table class="fl-table">
                 <thead>
@@ -69,8 +176,10 @@
                     </tr>
                 <tbody>
             </table>
-        </div>
-
-    </div>
-
+        </div>        
+        
+    </div>    
 </div>
+
+
+comentario -->

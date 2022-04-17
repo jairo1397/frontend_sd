@@ -8,19 +8,33 @@
         <h3>Tutor:</h3>
         <p>Marco</p>
         <h3>Alumno</h3>
-        <p>Jairo</p>
+        <p>{{tutoria.alumno}}</p>
         <h3>Dia</h3>
-        <p>Lunes</p>
+        <p>{{tutoria.fecha}}</p>
         <h3>Hora</h3>
-        <p>10:00</p>
+        <p>{{tutoria.hora}}</p>
         <h3>Enlace</h3>
         <p>www.meet.com</p>
-        <h3>Grabacion</h3>
-        <input type="text">
-        <h3>Observaciones</h3>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <br>
-        <br>
-        <button>Guardar</button>
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-6 offset-lg-3">   
+            <div class="card-body text-center">
+    </div>
+    
+    
+        <form [formGroup]="reunionForm"(submit)="agregarAcuerdo(reunionForm.value)">            
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" formControlName="enlace" id="enlace" placeholder="Enter enlace" aria-describedby="enlace">
+                <label for="email">Enlace de la Grabacion</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" formControlName="enlace" id="enlace" placeholder="Enter enlace" aria-describedby="enlace">
+                <label for="email">Acuerdo</label>
+            </div>
+            <div class="form-floating">
+                <button type="submit" class="btn btn-primary mb-2">Enviar invitacion</button>
+            </div>
+        
+        </form>
     </div>
 </div>

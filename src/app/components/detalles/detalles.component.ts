@@ -23,7 +23,6 @@ export class DetallesComponent implements OnInit {
   }
   detallesAlumno() {
     this._alumnoService.obtenerAlumno(this.alumnoId).subscribe(data => {
-
       console.log(data);
       this.alumnoNombre = data.alumno.nombre;
       this.alumnoApellido = data.alumno.apellido;

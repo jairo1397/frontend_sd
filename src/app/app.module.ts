@@ -16,6 +16,9 @@ import { Error404Component } from './components/error404/error404.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
 import { TutoriaComponent } from './components/tutoria/tutoria.component';
 import { ReunionComponent } from './components/reunion/reunion.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { ReunionComponent } from './components/reunion/reunion.component';
     Error404Component,
     DetallesComponent,
     TutoriaComponent,
-    ReunionComponent
+    ReunionComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { ReunionComponent } from './components/reunion/reunion.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

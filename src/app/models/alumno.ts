@@ -13,4 +13,5 @@ export class Alumno {
         this.genero = genero;
         this.promedio_pond = promedio_pond;
     }
+
 }

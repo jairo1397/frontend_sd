@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'detalles-alumno/:id', component: DetallesComponent },
   { path: 'sidebar', component: SidebarComponent },
   { path: 'tutoria', component: TutoriaComponent },
-  { path: 'reunion', component: ReunionComponent },
+  { path: 'reunion/:id', component: ReunionComponent },
   { path: '404', component: Error404Component },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: '404' }
