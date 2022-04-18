@@ -7,19 +7,21 @@
         <div class="col-lg-6 offset-lg-3">
             <div class="card-body text-center">
         <h1>Detalles de Reunion</h1>
-    </div>
-
         <hr>
-        <h4>Alumno</h4>
-        <p>{{alumno.nombre}} {{alumno.apellido}}</p>
-        <h4>Dia</h4>
-        <p>{{tutoria.fecha}}</p>
-        <h4>Hora</h4>
-        <p>{{tutoria.hora}}</p>
-        <h4>Enlace</h4>
-        <p>{{tutoria.reunion}}</p>
-        </div>
-    </div>
+        <dl class="row">
+            <dt class="col-sm-3">Alumno</dt>
+            <dd class="col-sm-9"><p>{{alumno.nombre}} {{alumno.apellido}}</p></dd>
+
+            <dt class="col-sm-3">Día</dt>
+            <dd class="col-sm-9"><p>{{tutoria.fecha}}</p></dd>
+
+            <dt class="col-sm-3">Hora</dt>
+            <dd class="col-sm-9"><p>{{tutoria.hora}}</p></dd>
+
+            <dt class="col-sm-3">Enlace</dt>
+            <dd class="col-sm-9"><p>{{tutoria.reunion}}</p></dd>
+            
+          </dl>
         <div class="container">
             <div class="row">
             <div class="col-lg-6 offset-lg-3">   
