@@ -23,4 +23,9 @@ export class TutoriasService {
     console.log("sssssssssssssss");
     return this.http.get(this.url + id);
   }
+  guardarAcuerdo(id: string,tutoria: Tutoria): Observable<any> {
+    console.log(tutoria);
+    console.log("holaaaaaaaaa");
+    return this.http.put(this.url + id, tutoria);
+  }
 }

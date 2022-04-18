@@ -10,6 +10,8 @@ import { Alumno } from 'src/app/models/alumno';
 import { TutoriasService } from 'src/app/services/tutorias.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { TutoresService } from 'src/app/services/tutores.service';
+import { Tutores } from 'src/app/models/tutores';
 
 @Component({
   selector: 'app-tutoria',
@@ -24,8 +26,10 @@ export class TutoriaComponent implements OnInit {
 
   listAlumnos: Alumno[] = [];
   listTutorias: Tutoria[] = [];
+  listTutores: Tutores[] = [];
   mapAlumnos = new Map<string, number>();
   listAlumnosNombre: string[] = [];
+  
   modelfocus: any;
   @ViewChild('instance', { static: true })
   instance!: NgbTypeahead;
@@ -42,7 +46,7 @@ export class TutoriaComponent implements OnInit {
         : this.listAlumnosNombre.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
     );
   }
-  constructor(private router: Router,private _alumnoService : AlumnoService,private tutoriasService:TutoriasService, private fb: FormBuilder,private toastr: ToastrService) {    
+  constructor( private tutoresService: TutoresService,private router: Router,private _alumnoService : AlumnoService,private tutoriasService:TutoriasService, private fb: FormBuilder,private toastr: ToastrService) {    
   }
 
   ngOnInit(): void {
@@ -57,12 +61,16 @@ export class TutoriaComponent implements OnInit {
     this.obtenerAlumnos();
     this.obtenerAlumnos2();
     this.obtenerTutorias();
+    this.obtenerTutores();
   }
 
   agregarTutoria(formValue:any){
     const TUTORIA= new Tutoria();
     console.log(this.mapAlumnos.get(formValue.id_alumno));
     TUTORIA.reunion=formValue.enlace;
+    TUTORIA.tutor=this.listTutores[0].id?.toString()!;
+    console.log(this.listTutores)
+    TUTORIA.tutor=this.listTutores[0].id?.toString()!;
     TUTORIA.alumno=this.mapAlumnos.get(formValue.id_alumno)||2;
     TUTORIA.hora=formValue.hora.hour.toString()+" : "+formValue.hora.minute.toString();
     TUTORIA.fecha=formValue.fecha.day.toString() + "/"+formValue.fecha.month.toString() + "/"+ formValue.fecha.year.toString();
@@ -78,6 +86,13 @@ export class TutoriaComponent implements OnInit {
         console.log(error);
         this.tutoriaForm.reset();
     });
+    window.location.reload();
+  }
+  obtenerTutores() {    
+    this.tutoresService.getTutores().subscribe(data => {
+      console.log(data);
+      this.listTutores=data;
+    }, error => console.log(error));    
   }
 
   obtenerAlumnos() {    
@@ -95,8 +110,6 @@ export class TutoriaComponent implements OnInit {
   }
   obtenerTutorias() {    
     this.tutoriasService.getTutorias().subscribe(data => {
-      console.log("gaaaaaaaaaaaaaaaaa");
-      console.log(data);
       this.listTutorias= data
     }, error => console.log(error));    
   }

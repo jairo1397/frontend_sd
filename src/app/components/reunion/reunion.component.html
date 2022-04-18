@@ -8,13 +8,13 @@
         <h3>Tutor:</h3>
         <p>Marco</p>
         <h3>Alumno</h3>
-        <p>{{tutoria.alumno}}</p>
+        <p>{{alumno.nombre}} {{alumno.apellido}}</p>
         <h3>Dia</h3>
         <p>{{tutoria.fecha}}</p>
         <h3>Hora</h3>
         <p>{{tutoria.hora}}</p>
         <h3>Enlace</h3>
-        <p>www.meet.com</p>
+        <p>{{tutoria.reunion}}</p>
         <div class="container">
             <div class="row">
             <div class="col-lg-6 offset-lg-3">   
@@ -27,9 +27,21 @@
                 <input type="text" class="form-control" formControlName="enlace" id="enlace" placeholder="Enter enlace" aria-describedby="enlace">
                 <label for="email">Enlace de la Grabacion</label>
             </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" formControlName="enlace" id="enlace" placeholder="Enter enlace" aria-describedby="enlace">
-                <label for="email">Acuerdo</label>
+            <div class="form-floating mt-3 mb-3">
+                <input
+                id="typeahead-focus"
+                type="text"
+                class="form-control"
+                formControlName="acuerdo"
+                placeholder="Enter acuerdo" 
+                aria-describedby="Acuerdo"
+                [(ngModel)]="modelfocus"
+                [ngbTypeahead]="search"
+                (focus)="focus$.next($any($event).target.value)"
+                (click)="click$.next($any($event).target.value)"
+                #instance="ngbTypeahead"
+                />
+                <label for="acuerdo">Acuerdo</label>
             </div>
             <div class="form-floating">
                 <button type="submit" class="btn btn-primary mb-2">Enviar invitacion</button>
