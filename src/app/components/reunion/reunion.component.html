@@ -4,22 +4,27 @@
 
 <div class="contenido">
     <div class="reunion">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card-body text-center">
         <h1>Detalles de Reunion</h1>
-        <h3>Tutor:</h3>
-        <p>Marco</p>
-        <h3>Alumno</h3>
+    </div>
+
+        <hr>
+        <h4>Alumno</h4>
         <p>{{alumno.nombre}} {{alumno.apellido}}</p>
-        <h3>Dia</h3>
+        <h4>Dia</h4>
         <p>{{tutoria.fecha}}</p>
-        <h3>Hora</h3>
+        <h4>Hora</h4>
         <p>{{tutoria.hora}}</p>
-        <h3>Enlace</h3>
+        <h4>Enlace</h4>
         <p>{{tutoria.reunion}}</p>
+        </div>
+    </div>
         <div class="container">
             <div class="row">
             <div class="col-lg-6 offset-lg-3">   
             <div class="card-body text-center">
-    </div>
+    
     
     
         <form [formGroup]="reunionForm"(submit)="agregarAcuerdo(reunionForm.value)">            
@@ -44,7 +49,7 @@
                 <label for="acuerdo">Acuerdo</label>
             </div>
             <div class="form-floating">
-                <button type="submit" class="btn btn-primary mb-2">Enviar invitacion</button>
+                <button type="submit" class="btn btn-primary mb-2">Enviar acuerdo</button>
             </div>
         
         </form>
