@@ -79,14 +79,13 @@ export class TutoriaComponent implements OnInit {
 
     console.log( TUTORIA);
       this.tutoriasService.guardarTutoria(TUTORIA).subscribe(data => {
-        this.router.navigate(['/tutoria']);
         this.toastr.success('Tutoria agregado correctamente', 'Tutoria agregado');
         this.tutoriaForm.reset();
+        setTimeout(() => window.location.reload(), 3000);
       }, error => {
         console.log(error);
         this.tutoriaForm.reset();
     });
-    window.location.reload();
   }
   obtenerTutores() {    
     this.tutoresService.getTutores().subscribe(data => {
@@ -118,7 +117,7 @@ export class TutoriaComponent implements OnInit {
     nombre="";
     this.listAlumnos.forEach(object =>{
       if(object.id == id_alumno){
-          nombre= (object.nombre+object.apellido);
+          nombre= (object.nombre+ " " + object.apellido);
       }
   });
 
