@@ -42,7 +42,7 @@ export class AgregarAlumnoComponent implements OnInit {
       this._alumnoService.editarAlumno(this.id, ALUMNO).subscribe(data => {
 
         this.toastr.info('Alumno editado correctamente', 'Alumno editado');
-        this.router.navigate(['/']);
+        this.router.navigate(['/listar-alumnos']);
       }, error => {
         console.log(error);
       });
@@ -51,7 +51,7 @@ export class AgregarAlumnoComponent implements OnInit {
       console.log(ALUMNO);
       this._alumnoService.guardarAlumno(ALUMNO).subscribe(data => {
         this.toastr.success('Alumno agregado correctamente', 'Alumno agregado');
-        this.router.navigate(['/']);
+        this.router.navigate(['/listar-alumnos']);
       }, error => {
         console.log(error);
         this.alumnoForm.reset();
